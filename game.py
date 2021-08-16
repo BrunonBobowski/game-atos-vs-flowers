@@ -120,15 +120,12 @@ while running:
     if enemy_X <= 0:
         enemy_speed *= -1
         enemy_Y += 64
-
-
         def enemy():
             screen.blit(enemyR_img, (enemy_X, enemy_Y))
+            
     elif enemy_X >= 736:
         enemy_speed *= -1
         enemy_Y += 64
-
-
         def enemy():
             screen.blit(enemyL_img, (enemy_X, enemy_Y))
 
