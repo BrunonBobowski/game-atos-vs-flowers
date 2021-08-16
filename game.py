@@ -145,6 +145,7 @@ while running:
 
     if iscollision(playerX, playerY, enemy_X, enemy_Y):
         running = False
+        print("Score: "+str(score))
 
     if score % 5 == 0:
         def flower():
