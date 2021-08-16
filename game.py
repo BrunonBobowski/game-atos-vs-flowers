@@ -130,8 +130,8 @@ while running:
             screen.blit(enemyL_img, (enemy_X, enemy_Y))
 
     if enemy_Y >= 536:
-        enemy_X = random.randint(1, 735)
-        enemy_Y = random.randint(1, 535)
+        enemy_X = 0
+        enemy_Y = 100
 
     if pee_state == "done":
         pee_done(peeX, peeY)
