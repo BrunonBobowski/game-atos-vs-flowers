@@ -43,6 +43,7 @@ pee_state = "ready"
 def player(x, y):
     screen.blit(player_img, (x, y))
 
+
 def enemy():
     screen.blit(enemyR_img, (enemy_X, enemy_Y))
 
@@ -71,6 +72,7 @@ def generate_flower():
     flower_Y = random.randint(100, 535)
     flower_speedX = 0
     flower_speedY = 0
+
 
 generate_flower()
 
@@ -118,18 +120,21 @@ while running:
     if enemy_X <= 0:
         enemy_speed *= -1
         enemy_Y += 64
+
+
         def enemy():
             screen.blit(enemyR_img, (enemy_X, enemy_Y))
     elif enemy_X >= 736:
         enemy_speed *= -1
         enemy_Y += 64
+
+
         def enemy():
             screen.blit(enemyL_img, (enemy_X, enemy_Y))
 
     if enemy_Y >= 536:
         enemy_X = random.randint(1, 735)
         enemy_Y = random.randint(1, 535)
-
 
     if pee_state == "done":
         pee_done(peeX, peeY)
@@ -163,7 +168,6 @@ while running:
     font = pygame.font.SysFont("Kristen ITC", 50)
     label = font.render(("Score: " + str(score)), False, (0, 0, 0))
     screen.blit(label, (300, 10))
-
 
     flower()
     player(playerX, playerY)
