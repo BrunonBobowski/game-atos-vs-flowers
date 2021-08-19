@@ -76,12 +76,12 @@ def pee_done(x, y):
     screen.blit(pee_img, (x + 16, y + 16))
 
 
-def iscollision(x1, y1, x2, y2):
+def iscollision(dx, x1, y1, x2, y2):
     """ this function measures the distance between two points [x1, y1] and [x2, y2]
-     if the distance is less than 25 the function returns True
+     if the distance is less than 'dx' the function returns True
      """
     distance = math.sqrt((math.pow(x1 - x2, 2) + math.pow(y1 - y2, 2)))
-    if distance < 25:
+    if distance < dx:
         return True
     else:
         return False
@@ -165,13 +165,13 @@ while running:
         pee_done(pee_x, pee_y)
         pee_y += PEE_SPEED_y
 
-    if iscollision(flower_x - 16, flower_y - 16, pee_x, pee_y):
+    if iscollision(25, flower_x - 16, flower_y - 16, pee_x, pee_y):
         pee_state = "ready"
         pee_y = -50
         score += 1
         generate_flower()
 
-    if iscollision(player_x, player_y, enemy_x, enemy_y):
+    if iscollision(75, player_x - 32, player_y - 32, enemy_x, enemy_y):
         """ this function returns false and prints the score if the player collides with the enemy """
 
         running = False
