@@ -165,7 +165,7 @@ while running:
         pee_done(pee_x, pee_y)
         pee_y += PEE_SPEED_y
 
-    if iscollision(flower_x, flower_y, pee_x, pee_y):
+    if iscollision(flower_x - 16, flower_y - 16, pee_x, pee_y):
         pee_state = "ready"
         pee_y = -50
         score += 1
