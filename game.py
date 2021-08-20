@@ -193,7 +193,7 @@ while running:
         def flower():
             screen.blit(flower_5_img, (flower_x, flower_y))
 
-    """ functions above generates flowers """
+    """ functions above change flowers images """
 
     font = pygame.font.SysFont("Kristen ITC", 50)
     label = font.render(("Score: " + str(score)), False, (0, 0, 0))
