@@ -6,7 +6,7 @@ old versions (plik ze starymi wersjami gry)
 
 README.md
 
-game.py (plik z kodem do gry w pythonie)
+game.py (plik z najnowszą wersją kodu do gry w pythonie)
 
 requirements.txt (plik z wymaganiami)
 
