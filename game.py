@@ -11,8 +11,8 @@ ATOS_SPEED = 0.5
 ENEMY_SPEED = 0.2
 PEE_SPEED_Y = 0.3
 
-SPEED_X = 0
-SPEED_Y = 0
+PLAYER_SPEED_X = 0
+PLAYER_SPEED_Y = 0
 
 RIGHT_BORDER_X = 736
 LEFT_BORDER_X = 0
@@ -119,20 +119,20 @@ while running:
                 pee_done(player_x, player_y)
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                SPEED_X = -ATOS_SPEED
+                PLAYER_SPEED_X = -ATOS_SPEED
             if event.key == pygame.K_RIGHT:
-                SPEED_X = ATOS_SPEED
+                PLAYER_SPEED_X = ATOS_SPEED
             if event.key == pygame.K_UP:
-                SPEED_Y = -ATOS_SPEED
+                PLAYER_SPEED_Y = -ATOS_SPEED
             if event.key == pygame.K_DOWN:
-                SPEED_Y = ATOS_SPEED
+                PLAYER_SPEED_Y = ATOS_SPEED
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT or event.key == pygame.K_UP or event.key == pygame.K_DOWN:
-                SPEED_X = 0
-                SPEED_Y = 0
+                PLAYER_SPEED_X = 0
+                PLAYER_SPEED_Y = 0
 
-    player_x += SPEED_X
-    player_y += SPEED_Y
+    player_x += PLAYER_SPEED_X
+    player_y += PLAYER_SPEED_Y
     enemy_x += ENEMY_SPEED
 
     if player_x <= LEFT_BORDER_X:
