@@ -9,6 +9,7 @@ import math
 ATOS_SPEED = 0.5
 """ ATOS_SPEED informs how fast the player runs """
 ENEMY_SPEED = 0.2
+
 PEE_SPEED_Y = 0.3
 
 PLAYER_SPEED_X = 0
