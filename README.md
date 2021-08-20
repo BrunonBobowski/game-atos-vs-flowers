@@ -2,6 +2,8 @@ Repozytorium "game-atos-vs-flowers" zawiera:
 
 assets (plik w którym znajdują się grafiki do gry) 
 
+old versions (plik ze starymi wersjami gry)
+
 README.md
 
 game.py (plik z kodem do gry w pythonie)
