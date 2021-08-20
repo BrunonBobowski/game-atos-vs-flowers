@@ -11,6 +11,9 @@ ATOS_SPEED = 0.5
 ENEMY_SPEED = 0.2
 PEE_SPEED_Y = 0.3
 
+SPEED_X = 0
+SPEED_Y = 0
+
 RIGHT_BORDER_X = 736
 LEFT_BORDER_X = 0
 TOP_BORDER_Y = 0
@@ -19,15 +22,20 @@ BOTTOM_BORDER_Y = 536
 SCREEN = pygame.display.set_mode((800, 600))
 
 BACKGROUND = pygame.image.load("assets/tło.png")
+
 ICON = pygame.image.load("assets/atos32.png")
+
 FLOWER_1_IMG = pygame.image.load("assets/floral1.png")
 FLOWER_2_IMG = pygame.image.load("assets/floral2.png")
 FLOWER_3_IMG = pygame.image.load("assets/floral3.png")
 FLOWER_4_IMG = pygame.image.load("assets/floral4.png")
 FLOWER_5_IMG = pygame.image.load("assets/floral5.png")
+
 PLAYER_IMG = pygame.image.load("assets/atos.png")
+
 ENEMY_R_IMG = pygame.image.load("assets/enemy_1R.png")
 ENEMY_L_IMG = pygame.image.load("assets/enemy_1L.png")
+
 PEE_IMG = pygame.image.load("assets/pee2.png")
 
 pygame.init()
@@ -40,8 +48,6 @@ score = 0
 
 player_x = 368
 player_y = 480
-SPEED_X = 0
-SPEED_Y = 0
 
 enemy_x = LEFT_BORDER_X
 enemy_y = TOP_BORDER_Y
