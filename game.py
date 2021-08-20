@@ -8,19 +8,16 @@ import math
 
 ATOS_SPEED = 0.5
 """ ATOS_SPEED informs how fast the player runs """
+ENEMY_SPEED = 0.2
+PEE_SPEED_Y = 0.3
 
 RIGHT_BORDER_X = 736
 LEFT_BORDER_X = 0
 TOP_BORDER_Y = 0
 BOTTOM_BORDER_Y = 536
 
-pygame.init()
-
 SCREEN = pygame.display.set_mode((800, 600))
 
-score = 0
-
-pygame.display.set_caption("atos vs flowers")
 BACKGROUND = pygame.image.load("assets/tło.png")
 ICON = pygame.image.load("assets/atos32.png")
 FLOWER_1_IMG = pygame.image.load("assets/floral1.png")
@@ -28,25 +25,29 @@ FLOWER_2_IMG = pygame.image.load("assets/floral2.png")
 FLOWER_3_IMG = pygame.image.load("assets/floral3.png")
 FLOWER_4_IMG = pygame.image.load("assets/floral4.png")
 FLOWER_5_IMG = pygame.image.load("assets/floral5.png")
+PLAYER_IMG = pygame.image.load("assets/atos.png")
+ENEMY_R_IMG = pygame.image.load("assets/enemy_1R.png")
+ENEMY_L_IMG = pygame.image.load("assets/enemy_1L.png")
+PEE_IMG = pygame.image.load("assets/pee2.png")
+
+pygame.init()
+
+pygame.display.set_caption("atos vs flowers")
 
 pygame.display.set_icon(ICON)
 
-PLAYER_IMG = pygame.image.load("assets/atos.png")
+score = 0
+
 player_x = 368
 player_y = 480
 SPEED_X = 0
 SPEED_Y = 0
 
-ENEMY_R_IMG = pygame.image.load("assets/enemy_1R.png")
-ENEMY_L_IMG = pygame.image.load("assets/enemy_1L.png")
-ENEMY_SPEED = 0.2
 enemy_x = LEFT_BORDER_X
 enemy_y = TOP_BORDER_Y
 
-PEE_IMG = pygame.image.load("assets/pee2.png")
 pee_x = 0
 pee_y = 0
-PEE_SPEED_y = 0.3
 pee_state = "ready"
 
 
@@ -163,7 +164,7 @@ while running:
 
     if pee_state == "done":
         pee_done(pee_x, pee_y)
-        pee_y += PEE_SPEED_y
+        pee_y += PEE_SPEED_Y
 
     if iscollision(25, flower_x, flower_y, pee_x, pee_y):
         pee_state = "ready"
