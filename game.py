@@ -16,34 +16,34 @@ BOTTOM_BORDER_Y = 536
 
 pygame.init()
 
-screen = pygame.display.set_mode((800, 600))
+SCREEN = pygame.display.set_mode((800, 600))
 
 score = 0
 
 pygame.display.set_caption("atos vs flowers")
-background = pygame.image.load("assets/tło.png")
-icon = pygame.image.load("assets/atos32.png")
-flower_1_img = pygame.image.load("assets/floral1.png")
-flower_2_img = pygame.image.load("assets/floral2.png")
-flower_3_img = pygame.image.load("assets/floral3.png")
-flower_4_img = pygame.image.load("assets/floral4.png")
-flower_5_img = pygame.image.load("assets/floral5.png")
+BACKGROUND = pygame.image.load("assets/tło.png")
+ICON = pygame.image.load("assets/atos32.png")
+FLOWER_1_IMG = pygame.image.load("assets/floral1.png")
+FLOWER_2_IMG = pygame.image.load("assets/floral2.png")
+FLOWER_3_IMG = pygame.image.load("assets/floral3.png")
+FLOWER_4_IMG = pygame.image.load("assets/floral4.png")
+FLOWER_5_IMG = pygame.image.load("assets/floral5.png")
 
-pygame.display.set_icon(icon)
+pygame.display.set_icon(ICON)
 
-player_img = pygame.image.load("assets/atos.png")
+PLAYER_IMG = pygame.image.load("assets/atos.png")
 player_x = 368
 player_y = 480
-speed_x = 0
-speed_y = 0
+SPEED_X = 0
+SPEED_Y = 0
 
-enemy_r_img = pygame.image.load("assets/enemy_1R.png")
-enemy_l_img = pygame.image.load("assets/enemy_1L.png")
-enemy_speed = 0.2
+ENEMY_R_IMG = pygame.image.load("assets/enemy_1R.png")
+ENEMY_L_IMG = pygame.image.load("assets/enemy_1L.png")
+ENEMY_SPEED = 0.2
 enemy_x = LEFT_BORDER_X
 enemy_y = TOP_BORDER_Y
 
-pee_img = pygame.image.load("assets/pee2.png")
+PEE_IMG = pygame.image.load("assets/pee2.png")
 pee_x = 0
 pee_y = 0
 PEE_SPEED_y = 0.3
@@ -53,19 +53,19 @@ pee_state = "ready"
 def player(x, y):
     """ this function generates the player on coordinates x and y """
 
-    screen.blit(player_img, (x, y))
+    SCREEN.blit(PLAYER_IMG, (x, y))
 
 
 def enemy():
     """ this function generates the enemy on coordinates x and y """
 
-    screen.blit(enemy_r_img, (enemy_x, enemy_y))
+    SCREEN.blit(ENEMY_R_IMG, (enemy_x, enemy_y))
 
 
 def flower():
     """ this function generates the flower on coordinates x and y """
 
-    screen.blit(flower_1_img, (flower_x, flower_y))
+    SCREEN.blit(FLOWER_1_IMG, (flower_x, flower_y))
 
 
 def pee_done(x, y):
@@ -73,7 +73,7 @@ def pee_done(x, y):
 
     global pee_state
     pee_state = "done"
-    screen.blit(pee_img, (x + 16, y + 16))
+    SCREEN.blit(PEE_IMG, (x + 16, y + 16))
 
 
 def iscollision(dx, x1, y1, x2, y2):
@@ -99,7 +99,7 @@ generate_flower()
 
 running = True
 while running:
-    screen.fill((164, 255, 110))  # screen.blit(background, (0, 0)) #screen.fill((164, 255, 110))
+    SCREEN.fill((164, 255, 110))  # screen.blit(background, (0, 0)) #screen.fill((164, 255, 110))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -112,21 +112,21 @@ while running:
                 pee_done(player_x, player_y)
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                speed_x = -ATOS_SPEED
+                SPEED_X = -ATOS_SPEED
             if event.key == pygame.K_RIGHT:
-                speed_x = ATOS_SPEED
+                SPEED_X = ATOS_SPEED
             if event.key == pygame.K_UP:
-                speed_y = -ATOS_SPEED
+                SPEED_Y = -ATOS_SPEED
             if event.key == pygame.K_DOWN:
-                speed_y = ATOS_SPEED
+                SPEED_Y = ATOS_SPEED
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT or event.key == pygame.K_UP or event.key == pygame.K_DOWN:
-                speed_x = 0
-                speed_y = 0
+                SPEED_X = 0
+                SPEED_Y = 0
 
-    player_x += speed_x
-    player_y += speed_y
-    enemy_x += enemy_speed
+    player_x += SPEED_X
+    player_y += SPEED_Y
+    enemy_x += ENEMY_SPEED
 
     if player_x <= LEFT_BORDER_X:
         player_x = LEFT_BORDER_X
@@ -143,19 +143,19 @@ while running:
         """ if the enemy touches the left border it changes his y by adding 64, reverses the speed
          and changes the enemy picture to enemy_r_img so the enemy is looking to the right """
 
-        enemy_speed *= -1
+        ENEMY_SPEED *= -1
         enemy_y += 64
         def enemy():
-            screen.blit(enemy_r_img, (enemy_x, enemy_y))
+            SCREEN.blit(ENEMY_R_IMG, (enemy_x, enemy_y))
 
     elif enemy_x >= RIGHT_BORDER_X:
         """ if the enemy touches the right border it changes his y by adding 64, reverses the speed
                  and changes the enemy picture to enemy_l_img so the enemy is looking to the left """
 
-        enemy_speed *= -1
+        ENEMY_SPEED *= -1
         enemy_y += 64
         def enemy():
-            screen.blit(enemy_l_img, (enemy_x, enemy_y))
+            SCREEN.blit(ENEMY_L_IMG, (enemy_x, enemy_y))
 
     if enemy_y >= BOTTOM_BORDER_Y:
         enemy_x = 0
@@ -179,25 +179,25 @@ while running:
 
     if score % 5 == 0:
         def flower():
-            screen.blit(flower_1_img, (flower_x, flower_y))
+            SCREEN.blit(FLOWER_1_IMG, (flower_x, flower_y))
     elif score % 5 == 1:
         def flower():
-            screen.blit(flower_2_img, (flower_x, flower_y))
+            SCREEN.blit(FLOWER_2_IMG, (flower_x, flower_y))
     elif score % 5 == 2:
         def flower():
-            screen.blit(flower_3_img, (flower_x, flower_y))
+            SCREEN.blit(FLOWER_3_IMG, (flower_x, flower_y))
     elif score % 5 == 3:
         def flower():
-            screen.blit(flower_4_img, (flower_x, flower_y))
+            SCREEN.blit(FLOWER_4_IMG, (flower_x, flower_y))
     else:
         def flower():
-            screen.blit(flower_5_img, (flower_x, flower_y))
+            SCREEN.blit(FLOWER_5_IMG, (flower_x, flower_y))
 
-    """ functions above change flowers images """
+    """ functions above generates flowers """
 
     font = pygame.font.SysFont("Kristen ITC", 50)
     label = font.render(("Score: " + str(score)), False, (0, 0, 0))
-    screen.blit(label, (300, 10))
+    SCREEN.blit(label, (300, 10))
     """ setting font, size and displaying score on screen """
 
     flower()
